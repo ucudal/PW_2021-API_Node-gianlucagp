@@ -27,3 +27,4 @@ app.listen(process.env.PORT || 3000, (a) => {
   console.log("Servidor disponible en http://localhost:3000")
 });
 
+module.exports=app;
