@@ -2,18 +2,18 @@ const express = require('express');
 const app = express();
 
 /*const experiencias = [
-  { "experiencia-laboral" :[ {"empresa":"cdargent","puesto":"interno","descripcion":"aburrido" , "fechaInicio": new Date("2020-07-15"), "fechaFin": new Date("2021-07-15")} ] }
+  { "experiencia-laboral" : [ {"empresa":"cdargent","puesto":"interno","descripcion":"aburrido" , "fechaInicio": new Date("2020-07-15"), "fechaFin": new Date("2021-07-15") } ] }
 ]*/
 
 const experiencias = [
-  { "experiencia-laboral" :[ {"empresa":"cdargent","puesto":"interno","descripcion":"aburrido" , "fechaInicio": new Date("2020-07-15"), "fechaFin": new Date("2021-07-15")} ] }
+  {"empresa":"cdargent","puesto":"interno","descripcion":"aburrido" , "fechaInicio": new Date("2020-07-15"), "fechaFin": new Date("2021-07-15")} 
 ]
 
 app.get('/', function(req, res) {
   res.send("¡Hola mundo!")
 });
 
-app.get('/api/experiencia', function(req, res) {
+app.get('/api/experiencia.json', function(req, res) {
   res.send(experiencias)
 });
 
