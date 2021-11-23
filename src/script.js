@@ -33,7 +33,10 @@ function renderHTML(data) {
 
   for (i = 0; i < data.length; i++) {
     
-    htmlString += "<p>" + data[i].empresa;
+    for (j = 0; j < data[i].experiencia_laboral.length; j++) {
+      htmlString += "<p>" + data[i].experiencia_laboral[0].empresa + " , "+data[i].experiencia_laboral[0].puesto + " , "+data[i].experiencia_laboral[0].descripcion + " , "+data[i].experiencia_laboral[0].fechaInicio + " , "+data[i].experiencia_laboral[0].fechaFin;
+
+    }
 
     htmlString += '.</p>';
 

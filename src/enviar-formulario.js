@@ -31,17 +31,18 @@ const PORT = process.env.PORT || 4000;
 
 app.get("/", (req, res) => {
   // check if user is logged in, by checking cookie
-  let username = req.cookies.username;
+  let PW_2021_CV_Contacto = req.cookies.PW_2021_CV_Contacto;
 
   // render the home page
   return res.render("home", {
-    username,
+    PW_2021_CV_Contacto,
   });
 });
 
 app.get("/login", (req, res) => {
   // check if there is a msg query
   let bad_auth = req.query.msg ? true : false;
+  let PW_2021_CV_Contacto = req.cookies.PW_2021_CV_Contacto;
 
   // if there exists, send the error.
   if (bad_auth) {
@@ -51,38 +52,40 @@ app.get("/login", (req, res) => {
       });
   } else {
     // else just render the login
-    return res.render("login");
+    return res.render("login", {
+      PW_2021_CV_Contacto,
+    });
   }
 });
 
 app.get("/welcome", (req, res) => {
   // get the username
-  let username = req.cookies.username;
+  let PW_2021_CV_Contacto = req.cookies.PW_2021_CV_Contacto;
 
   // render welcome page
   return res.render("welcome", {
-    username,
+    PW_2021_CV_Contacto,
   });
 });
 
 app.post("/process_login", (req, res) => {
   // get the data
-  let { username, email, comment } = req.body;
-  let nombre= username;
-  let pass= email;
-  let comm = comment;
+  let { nombreContacto, emailContacto, commentContacto } = req.body;
+  let nombre= nombreContacto;
+  let pass= emailContacto;
+  let comm = commentContacto;
 
   let userdetails_test = {
-    username: nombre,
-    email: pass,
-    comment:comm
+    nombreContacto: nombre,
+    emailContacto: pass,
+    commentContacto:comm
   };
 
   // basic check
-  if (username.localeCompare("") != 0) {
+  if (nombreContacto.localeCompare("") != 0) {
     console.log(userdetails_test);
     // saving the data to the cookies
-    res.cookie("username", JSON.stringify(userdetails_test));
+    res.cookie("PW_2021_CV_Contacto", JSON.stringify(userdetails_test));
     // redirect
     return res.redirect("/welcome");
   } else {
@@ -93,7 +96,7 @@ app.post("/process_login", (req, res) => {
 
 app.get("/logout", (req, res) => {
   // clear the cookie
-  res.clearCookie("username");
+  res.clearCookie("PW_2021_CV_Contacto");
   // redirect to login
   return res.redirect("/login");
 });

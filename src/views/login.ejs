@@ -12,16 +12,28 @@
                 <h2>Login</h2>
                 <% if(locals.error) {%>
                 <p class="text-danger"><%=error%></p>
-                <%}%>                
+                <%}%>
+                <%if(locals.PW_2021_CV_Contacto){%>
+                    <div class="input-field">
+                        <input type="text" name="nombreContacto" id="nombreContacto" placeholder="Enter Name" value=<%=JSON.parse(PW_2021_CV_Contacto).nombreContacto%> > <!-- se identifica por name-->
+                    </div>
+                    <div class="input-field">
+                        <input type="text" name="emailContacto" id="emailContacto" placeholder="Enter Email" value=<%=JSON.parse(PW_2021_CV_Contacto).emailContacto%>>
+                    </div>
+                    <div class="input-field">
+                        <input type="text" name="commentContacto" id="commentContacto" placeholder="Enter Comment" value=<%=JSON.parse(PW_2021_CV_Contacto).commentContacto%>>
+                    </div>
+                <%} else { %>
                 <div class="input-field">
-                    <input type="text" name="username" id="username" placeholder="Enter Name"> <!-- se identifica por name-->
+                    <input type="text" name="nombreContacto" id="nombreContacto" placeholder="Enter Name"> <!-- se identifica por name-->
                 </div>
                 <div class="input-field">
-                    <input type="text" name="email" id="email" placeholder="Enter Email">
+                    <input type="text" name="emailContacto" id="emailContacto" placeholder="Enter Email">
                 </div>
                 <div class="input-field">
-                    <input type="text" name="comment" id="comment" placeholder="Enter Comment">
+                    <input type="text" name="commentContacto" id="commentContacto" placeholder="Enter Comment">
                 </div>
+                <% } %>
                 <input type="submit" value="LogIn">
             </form>
         </div>

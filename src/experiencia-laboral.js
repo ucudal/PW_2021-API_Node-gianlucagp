@@ -6,7 +6,7 @@ const app = express();
 ]*/
 
 const experiencias = [
-  {"empresa":"cdargent","puesto":"interno","descripcion":"aburrido" , "fechaInicio": new Date("2020-07-15"), "fechaFin": new Date("2021-07-15")} 
+  {"experiencia_laboral":[{"empresa":"cdargent" ,"puesto":"interno","descripcion":"aburrido" , "fechaInicio": new Date("2020-07-15"), "fechaFin": new Date("2021-07-15")}]} 
 ]
 
 app.get('/', function(req, res) {

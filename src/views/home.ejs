@@ -11,8 +11,8 @@
             <h4>
                 Hello there, welcome.
             </h4>
-            <%if(locals.username){%>
-            <p>You are logged in as <%=username%></p>
+            <%if(locals.PW_2021_CV_Contacto){%>
+            <p>You are logged in as <%=JSON.parse(PW_2021_CV_Contacto).nombreContacto%></p>
             <a href="/logout">Logout</a>
             <%} else { %>
             <a href="/login">Login</a>
