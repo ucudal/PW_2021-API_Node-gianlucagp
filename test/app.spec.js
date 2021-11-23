@@ -2,6 +2,7 @@ const supertest = require("supertest");
 const assert = require("assert");
 const cookie = require('cookie');
 const app = require("../src/app");
+//const app_formulario = require("../src/enviar-formulario");
 
 describe("Endpoint /experiencia-laboral (GET)", function() {
   it("debería considerar CORS", function(done) {
@@ -20,7 +21,7 @@ describe("Endpoint /experiencia-laboral (GET)", function() {
       .expect(200)
       .end(function(err, res) {
         if (err) throw done(err);
-        assert.ok(res.body["experiencia-laboral"].length > 2);
+        assert.ok(res.body["experiencia_laboral"].length > 2);
         done();
       });
   });
@@ -31,7 +32,7 @@ describe("Endpoint /experiencia-laboral (GET)", function() {
       .expect(200)
       .end(function(err, res) {
         if (err) throw done(err);
-        res.body["experiencia-laboral"].forEach((exp, index) => {
+        res.body["experiencia_laboral"].forEach((exp, index) => {
           assert.ok(exp.empresa !== undefined, `el objeto en la posición ${index} no tiene la propiedad empresa`);
           assert.ok(exp.puesto !== undefined, `el objeto en la posición ${index} no tiene la propiedad puesto`);
           assert.ok(exp.descripcion !== undefined, `el objeto en la posición ${index} no tiene la propiedad descripcion`);
@@ -42,6 +43,8 @@ describe("Endpoint /experiencia-laboral (GET)", function() {
       });
   });
 });
+
+//app = require("../src/enviar-formulario");
 
 describe("Endpoint /enviar-formulario (POST)", function() {
   it("debería considerar CORS", function(done) {
