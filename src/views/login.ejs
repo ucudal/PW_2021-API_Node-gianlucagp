@@ -1,0 +1,41 @@
+<!-- src/views/login.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Login</title>
+        <link rel="stylesheet" href="/styles.css">
+    </head>
+    <body>
+        <div class="form">
+            <form action="/process_login" method="post">
+                <h2>Login</h2>
+                <% if(locals.error) {%>
+                <p class="text-danger"><%=error%></p>
+                <%}%>
+                <%if(locals.PW_2021_CV_Contacto){%>
+                    <div class="input-field">
+                        <input type="text" name="nombreContacto" id="nombreContacto" placeholder="Enter Name" value=<%=JSON.parse(PW_2021_CV_Contacto).nombreContacto%> > <!-- se identifica por name-->
+                    </div>
+                    <div class="input-field">
+                        <input type="text" name="emailContacto" id="emailContacto" placeholder="Enter Email" value=<%=JSON.parse(PW_2021_CV_Contacto).emailContacto%>>
+                    </div>
+                    <div class="input-field">
+                        <input type="text" name="commentContacto" id="commentContacto" placeholder="Enter Comment" value=<%=JSON.parse(PW_2021_CV_Contacto).commentContacto%>>
+                    </div>
+                <%} else { %>
+                <div class="input-field">
+                    <input type="text" name="nombreContacto" id="nombreContacto" placeholder="Enter Name"> <!-- se identifica por name-->
+                </div>
+                <div class="input-field">
+                    <input type="text" name="emailContacto" id="emailContacto" placeholder="Enter Email">
+                </div>
+                <div class="input-field">
+                    <input type="text" name="commentContacto" id="commentContacto" placeholder="Enter Comment">
+                </div>
+                <% } %>
+                <input type="submit" value="LogIn">
+            </form>
+        </div>
+    </body>
+</html>
